@@ -1,364 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="test.js"></script>
 
     <style>
-        
-        #container{
-            width: 200px;
-            height: 200px;
-            background-color: aqua;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            background-color: skyblue;
+            padding: 10px 10px;
+            width: 100%;
+        }
+
+        nav {
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+
+        .pic {
+            display: inline-block;
+        }
+
+        nav a {
+
+            padding: 10px 10px;
+            text-decoration: none;
+            transition: 0.6s;
+            color: white;
+        }
+
+        nav a:hover {
+            color: red;
+        }
+
+        .banner img {
+            width: 100%;
+        }
+
+        .about {
+            width: 100%;
+            margin: 20px 0px;
+            text-align: center;
+        }
+
+        .diver {
+            display: flex;
+        }
+
+        .content {
+            width: 50%;
+        }
+
+        .pic img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        .txt {
+            margin: 0px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .product {
+            margin: 20px 0px;
+            background-color: lightgray;
+        }
+
+        .wrap {
+            display: flex;
+            width: 960px;
+            margin: auto;
+        }
+
+        .item {
+            border: 1px solid gray;
+            padding: 10px;
             position: relative;
         }
-        #ani{
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            position: absolute; 
+
+        .item h2 {
+            line-height: 1em;
+        }
+
+        .hot {
+            background-color: lightskyblue;
+            font-size: 18px;
+            position: absolute;
+            padding: 2px 2px;
+            top: 0;
+            left: 0;
+        }
+
+        footer {
+            background-color: black;
+            text-align: center;
+            padding: 10px;
+            color: lightgray;
+        }
+
+        @media(max-width: 400px) {
+            .wrap {
+                display: block;
+            }
         }
     </style>
 </head>
-<body>
-    <button onclick="hand()">click</button>
 
-    <div id="container">
-        <div id="ani">
-            <!-- <img src="http://picsum.photos/50/50?radom3"> -->
+<body>
+
+    <div class="header">
+        <a href="#" class="pic"><img src="http://picsum.photos/50/30?radom2"></a>
+        <nav>
+            <a href="#">首頁</a>
+            <a href="#">最新消息</a>
+            <a href="#">關於我們</a>
+        </nav>
+    </div>
+
+    <div class="banner">
+        <img src="http://picsum.photos/1200/300?radom2">
+    </div>
+
+    <div class="about">
+
+        <h2>關於我們</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, odio?</p>
+
+    </div>
+
+    <div class="product">
+
+        <div class="diver">
+            <div class="content pic">
+                <img src="http://picsum.photos/80/50?radom1">
+            </div>
+            <div class="content txt">
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Cupiditate nobis vero ut quod quidem distinctio sint impedit
+                    quo tempora reiciendis beatae, fugit provident autem repudiandae.
+                    Ea error accusamus minus ad!</p>
+            </div>
         </div>
     </div>
 
-    <p id="oo"></p>
-
-    <script>
-       var click=0,stop=false;
-       var pos=0;
-        var an=document.getElementById("ani");
-        var id;
-        function hand(){
-            //click++;
-            
-            document.getElementById("oo").innerHTML=stop;
-            id=setInterval(f, 10);
-            //stop==true? stop=false:stop=true;
-            //document.getElementById("oo").innerHTML=stop;
-            function f(){
-                if(stop==true)
-                    clearInterval(id);
-              
-                if(pos<150 && click!=150)
-                {
-                    pos++;
-                    click++;
-
-                }
-                else if(pos>0)
-                {
-                    
-                    pos--; 
-                    if(pos==0) click=0;
-                }
-                an.style.top=pos+'px';
-
-                // if((click%2!=0 && pos==150) || (click%2==0 && pos==0))
-                //     clearInterval(id);  //暫停計時
-                // else
-                // {
-                //     if(click%2!=0)
-                //     pos++;
-                //     else pos--;
-                //     an.style.top=pos+'px';
-                // }    
-            }
-            
-        }
-    </script>
-
-    <h2>JavaScript in Head</h2>
-
-    <p id="demo">A Paragraph.</p>
-
-    <button  onclick="test()">Try it</button>
-
-    
-    <div style="display: block;">
-
-    
-    <script>
-        //document.write 測試用
-        //console.log 偵錯用
-        class a{
-            [Symbol.hasInstance](x) {           //Symbol.hasInstance 給 instanceof 使用的方法
-            return typeof x === 'number'
-            }
-        }
-        x="7";
-        y=6;
-        z=7;
-
-        //物件
-        var person = {
-            firstName: "John",
-            lastName: "Doe"
-        };
-
-        document.write(person.firstName);
-        document.write(person["firstName"]);
-
-        //取出方式
-        // console.log(b);
-        // var b=2;
-        console.log(c);
-        var c=2;                                //undefined
-        c=2;                                    //Uncaught ReferenceError
-
-
-        if(z instanceof a)                      //與衍生類別做比較
-        document.write(z);
-        if(typeof x=="string")
-        document.write(y);
-        document.write(typeof true);            //output boolean
-
-        //typeof null;
-         var f=new String("13");
-         var f2=new String("13");               //物件導致執行速度降低
-        
-        document.write((f2===f)+'<br/>');                 //物件比對會回傳false
-
-        var t="  Pp lo lo";
-        document.write('1：'+t.indexOf("lo")+'<br/>');        //取得第一次出現符合文字的位置
-        document.write('2：'+t.lastIndexOf("lo")+'<br/>');    //取得最後出現符合文字的位置
-        document.write('3：'+t.indexOf("lo",2)+'<br/>');      //往後找 output 3
-        document.write('4：'+t.lastIndexOf("lo",2)+'<br/>');  //往前找 output -1 -1代表找不到
-        document.write('5：'+t.search("lo")+'<br/>');         //與indexOf 不同，無第2個參數可設定
-
-        //負號不支援在IE8 或 更舊版
-        document.write('6：'+t.slice(2,5)+'<br/>');           //end position 字串 5-1 抓 2~4
-        document.write('7：'+t.slice(-5,-2)+'<br/>');         //往前抓 end position -2-1 抓 -5~-3
-        document.write('8：'+t.slice(0)+'<br/>');             //抓剩下的字串
-        document.write('9：'+t.substring(2,5)+'<br/>');       //不可使用負號
-        document.write('10：'+t.substr(2,5)+'<br/>');         //第2個參數是長度
-
-        document.write('11：'+t.replace("pp","oo")+'<br/>');  //替換字串
-        document.write('12：'+t.replace("lo","oo")+'<br/>');  //替換字串 只會替換第1次出現的字串
-        document.write('13：'+t.replace(/LO/ig,"oo")+'<br/>');  //大小寫不同 i  所有符合字串 g
-
-        document.write('14：'+t.toUpperCase()+'<br/>');         //轉大寫
-        document.write('15：'+t.toLowerCase()+'<br/>');         //轉小寫
-
-        document.write('16：'+t.concat(" ","555")+'<br/>');     //串不同字串
-        //trim不支援在IE8 或 更舊版
-        document.write('17：'+t.trim()+'<br/>');     //移除前後空白
-
-        //串改trim 可支援IE8 或 更舊版
-        if(!String.prototype.trim)
-        {
-            String.prototype.trim = function () {
-            return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
-            };
-        }
-
-        document.write('18：'+t.charAt(2)+'<br/>');         //擷取1個字串
-        document.write('19：'+t[2]+'<br/>');                //擷取1個字串，找不到回傳undefined，唯獨，盡量不使用
-        document.write('20：'+t.charCodeAt(2)+'<br/>');     //UTF-16 code
-
-        document.write('21：'+t.split("|")+'<br/>');        //分割字串 轉成陣列
-        
-        document.write('22：'+999999999999999+'<br/>');     //15位  
-        document.write('23：'+9999999999999999+'<br/>');    //17位  非準確
-
-        var u=0.2, u2=0.1;
-
-        document.write('24：'+((u*10+u2*10)/10)+'<br/>');              //直接相加不準確 須利用除法 乘法
-
-        u=NaN;
-        document.write('25：'+(u+u2)+'<br/>');
-        document.write('26：'+typeof(u)+'<br/>');
-        document.write('27：'+isNaN(u)+'<br/>');        //not a number
-        u2=10;
-        while(u2!=Infinity)
-        {
-            u2*=u2;
-            document.write('28：'+u2+'<br/>');
-        }
-        
-        document.write('29：'+u2/0+'<br/>');    //無限大    超出最大值
-        document.write('30：'+-u2/0+'<br/>');   //-無限大   超出最小值
-        document.write('31：'+typeof(Infinity)+'<br/>');
-
-        document.write('32：'+0xFF+'<br/>');    //16進制
-        u=10;
-        document.write('33：'+u.toString(2)+'<br/>');    //轉換進制 to 2
-
-        u=156.12356;
-        document.write('34：'+u.toExponential(1)+'<br/>');  //科學記號 四捨五入
-        document.write('35：'+u.toFixed(3)+'<br/>');        //四捨五入
-
-        document.write('36：'+u.toPrecision(5)+'<br/>');    //長度，四捨五入
-
-        document.write('37：'+Number(Date.now())+'<br/>');        //回傳整數 日期可轉 只能放單一值
-        document.write('38：'+parseInt(" 123")+'<br/>');        //回傳整數 日期可轉 可存放多個值
-
-        //metohd 1 迴圈
-        var u3=["vicky", "leo", "Ch"], i, text;
-        text="<ul>";
-        for(i=0; i<u3.length; i++)
-        {
-            text+="<li>"+u3[i]+"</li>";            
-        }
-
-        text+="</ul>";
-        document.write('39：'+text+'<br/>');
-
-        //method 2
-        text="<ul>";
-        u3.forEach(my);
-       
-        function my(value){
-            text+="<li>"+value+"</li>";
-        }
-        text+="</ul>";
-        document.write('40：'+text+'<br/>');
-
-        
-
-        function isArray(x)
-        {
-            return x.constructor.toString().indexOf("Array")>-1;
-        }
-
-        document.write('41：'+isArray(u3)+'<br/>');             //判斷是否為陣列
-        document.write('42：'+(u3 instanceof Array)+'<br/>');   //判斷是否為陣列
-        document.write('43：'+u3.sort()+'<br/>');               //排序
-        document.write('44：'+u3.join(" ")+'<br/>');            //串
-
-        u3.shift();
-        document.write('45：'+u3+'<br/>');      //前-->後 移除
-        u3.pop();
-        document.write('46：'+u3+'<br/>');      //後-->前 移除
-        u3.unshift("one");
-        document.write('47：'+u3+'<br/>');      //前 新增
-        u3[u3.length]="tt";
-        document.write('48：'+u3+'<br/>');      //加元素
-        u3.push("yy2")
-        document.write('49：'+u3+'<br/>');      //後 新增
-        u3.splice(2, 1, "two", "three");        //插入位置，移除數量，加入元素名稱
-        document.write('50：'+u3+'<br/>');      //新增
-        
-        var u4=["one", "two"];
-        document.write('51：'+u3.concat(u4)+'<br/>');           //合併 不影響原陣列
-        document.write('52：'+u3.concat(u4).slice(3)+'<br/>');  //合併+移除 不影響原陣列
-        u3.sort();
-        document.write('53：'+u3+'<br/>');                      //排序
-        document.write('54：'+u3.reverse()+'<br/>');            //排序
-
-        var u5=[40,100,1,5];
-        // u5=[1,100,40];
-        //return 負->a<b 正->a>b 0->不動
-        //100 40
-        //1 100
-        //5 1
-        //5 1 100 40 
-        document.write('55：'+u5.sort(function(a,b){document.write(a+","+b+'<br/>'); return a-b;})+'<br/>');
-        document.write('56：'+Math.max.apply(null, u5)+'<br/>');
-
-        text="";
-        //u5.forEach(arraytext);            //anything
-        //var u6=u5.map(arraytext);         //運算 + - * /各元素運算
-        //var u6=u5.filter(arraytext);      //表達 > < = 符合的元素
-        //var u6=u5.every(arraytext);       //表達 每個元素是否符合條件 true/false
-        //var u6=u5.some(arraytext);        //表達 其中元素是否符合條件 true/false
-        //var u6=u5.find(arraytext);        //表達 其中元素符合條件的第一個
-        //var u6=u5.findIndex(arraytext);     //表達 其中元素符合條件的第一個 索引
-        //var u6=u5.reduce(arraytext, 10);  //預設值 加總
-        
-        // function arraytext(total, value, index, array){
-        //     //text+=value;
-        //     //value 值 1  index 索引 0~3 array 陣列 ex：1,5,40,100
-        //     // if((index+1)%2!=0)
-        //     // text+=value;
-        //     document.write('57：'+'total：'+total+' value：'+value+' index：'+index+'<br>');
-        //     return value>5;
-        //     //text+=value+(index<array.length-1?',':'');
-
-        // }
-
-        function arraytext(value, index, array){
-            //value 值 1  index 索引 0~3 array 陣列 ex：1,5,40,100
-            document.write('57：'+' value：'+value+' index：'+index+'<br>');
-            return value>5;
-            //text+=value+(index<array.length-1?',':'');
-
-        }
-        //document.write('58：'+u6+'<br>');
-
-        document.write('59：'+Math.PI+'<br/>');
-        document.write('60：'+(Math.pow(9,2))+'<br/>');     //次方
-        document.write('61：'+(Math.sqrt(9))+'<br/>');      //開根號
-        document.write('62：'+(Math.ceil(9.1))+'<br/>');    //10    天花板
-        document.write('63：'+(Math.floor(9.5))+'<br/>');   //9     地板
-        document.write('64：'+(Math.floor(Math.random()*11))+'<br/>');  //亂數
-        document.write('65：'+Boolean(-10)+'<br/>'); //true / false
-
-        var cars=["one","two"];
-        text="";
-
-        list:{
-            text+=cars[0];
-            break list;
-            text+=cars[1];
-        }
-
-        document.write('66：'+text+'<br/>');
-
-        //
-
-        //alert(x);                                             //彈跳視窗
-        var z="pro\v123pp";
-        document.getElementById("demo").innerHTML=
-        "456";                                  // '/' 使用 串接文字 通常不太使用 可讀性過低
-
-       
-    </script>
-
-    <button onclick="this.innerHTML='123'">try it</button>
-    <button onchange="this.innerHTML='123'">try it</button>
-    <button onmouseover="this.innerHTML='123'" onmouseout="this.innerHTML='try it'">try it</button>
-    
-    <input id="De" type="text" required>
-    <p id="error"></p>
-
-    <button onclick="tt()">click</button>
-
-    <script>
-       
-            
-            function tt(){
-                var mess=document.getElementById("error");
-                mess.innerHTML="";
-                //var text=document.getElementById("De").value;
-                var ident=document.getElementById("De");
-                if(!ident.checkValidity())
-                    mess.innerHTML=ident.validationMessage;
-                //輸入錯誤動作
-                // try{
-                //   if(text=="") throw "empty";  
-                // }
-                // catch(err){
-                //     mess.innerHTML='input '+err;
-                // }
-                // finally{
-                //     document.getElementById("De").value='text'; //輸入完的動作
-                // }
-        }
-
-    </script>
-    
-
-
+    <div class="wrap">
+        <div class="item">
+            <div class="hot">hot</div>
+            <img src="http://picsum.photos/300/200?radom1">
+            <h2>title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, eius.</p>
+        </div>
+        <div class="item">
+            <div class="hot">hot</div>
+            <img src="http://picsum.photos/300/200?radom1">
+            <h2>title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, eius.</p>
+        </div>
+        <div class="item">
+            <div class="hot">hot</div>
+            <img src="http://picsum.photos/300/200?radom1">
+            <h2>title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, eius.</p>
+        </div>
     </div>
+
+    <footer>
+        &copy;copyright 2018 vicky
+    </footer>
+
+
 </body>
+
 </html>
